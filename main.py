@@ -1,6 +1,11 @@
 from bs4 import BeautifulSoup
 import glob
 import csv
+import time
+
+def format_date (date_str):
+    """ formats a string of 'Month Day Year' to a tuple of format YYYY MM DD """
+    return time.strptime(date_str, '%b %d %Y')
 
 def main ():
     """ reads a directory of html files and scrape lab results data from each file """
@@ -24,7 +29,7 @@ def main ():
         levels = [
                 {
                     'level': node.div.span.text,
-                    'date': node.find_all('span', class_='date')[0].text
+                    'date': format_date(node.find_all('span', class_='date')[0].text)
                     }
                 for node in d
                 if len(list(node)) > 1
