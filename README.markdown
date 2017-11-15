@@ -15,8 +15,8 @@ called `level-entries.csv` to the `assets` folder that looks like this:
 ```bash
 cat assets/level-entries.csv
 
-date,test,level
-"Jan 01, 2017",example, 4.9 g/dL
+date,SOME MEASUREMENT TITLE
+"Jan 01, 2017", 4.9 g/dL
 ```
 
 ## License 
