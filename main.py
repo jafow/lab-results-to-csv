@@ -1,11 +1,6 @@
 from bs4 import BeautifulSoup
 import glob
 import csv
-import time
-
-def format_date (date_str):
-    """ formats a string of 'Month Day Year' to a tuple of format YYYY MM DD """
-    return time.strptime(date_str, '%b %d %Y')
 
 def add_column(target, col_name):
     target.append(col_name)
