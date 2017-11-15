@@ -7,15 +7,19 @@ def format_date (date_str):
     """ formats a string of 'Month Day Year' to a tuple of format YYYY MM DD """
     return time.strptime(date_str, '%b %d %Y')
 
+def add_column(target, col_name):
+    target.append(col_name)
+    return target
+
 def main ():
     """ reads a directory of html files and scrape lab results data from each file """
     res = dict()
+    res['columns'] = list()
+
     html_files = glob.glob('./assets/*.html')
 
     for file in html_files:
-        measurement_key = file.replace('./assets/', '').replace('.html', '')
-
-        # open the file
+        # open the current file
         f = open(file, 'r')
         input = f.read()
 
